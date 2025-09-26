@@ -1,0 +1,39 @@
+git checkout -b project-structure //for new branch
+
+
+mongodb+srv://varungupta0994:<db_password>@zerodhaclonecluster.3dxa83w.mongodb.net/?retryWrites=true&w=majority&appName=ZerodhaCloneCluster
+
+qDM0dqmdw5sEg8Mg
+
+//backend setup
+
+npm init
+npm i -D nodemon
+
+npm i express body-parser cors dotenv mongoose passport passport-local passport-local-mongoose
+
+//index.js
+require('dotenv').config();
+const express = require('express');
+
+const PORT = process.env.PORT || 3002;
+const uri = process.env.MONGO_URL;
+
+const mongoose = require('mongoose');
+const app = express();
+
+//available in older version
+// mongoose.connect(uri, ()=>{
+//     console.log("DB Connected!");
+// })
+
+app.listen(PORT, ()=>{
+    console.log("App started!");
+    mongoose.connect(uri);
+    console.log("DB Connected!");
+})
+
+collection name = zerodha
+
+//testing
+npm test //to run test
